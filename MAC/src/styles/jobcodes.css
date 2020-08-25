@@ -1,0 +1,25 @@
+.jobs-table-container {
+    width: 100%;
+}
+
+.jobs-table-container table {
+    border: 2px solid gray;
+    width: inherit;
+    margin: 0 auto;
+}
+
+.jobs-table-container table th {
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.jobs-table-container table td {
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.jobs-table-container table caption {
+    font-size: 2em;
+    text-align: center;
+    caption-side: top;
+}
