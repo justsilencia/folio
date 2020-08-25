@@ -1,0 +1,139 @@
+<html>
+    <head>
+        <title>Job Change Form</title>
+        <link rel="stylesheet" href="http://localhost:4001/public/styles/jobchangeform.css">
+        <style>
+            body {
+                margin: .25in .5in;
+            }
+            .job-change-container table {
+                width: 100%;
+            }
+            .job-change-container h2 {
+                text-align: center;
+            }
+            .job-change-container h3 {
+                text-align: center;
+                margin: 0;
+            }
+            .cell-gap {
+                width: 15px;
+            }
+            .cell-name-underline {
+                border-bottom: 1px solid black;
+                width: 45vw;
+            }
+            .cell-dc-underline {
+                border-bottom: 1px solid black;
+                width: 10vw;
+            }
+            .cell-currjob-underline {
+                border-bottom: 1px solid black;
+                padding-left: 8px;
+                width: 60vw;
+            }
+            .space-row {
+                height: 1em;
+            }
+            .space-row-2 {
+                height: 2.5em;
+                border-bottom: 1px solid black;
+            }
+            .job-reason {
+                border-bottom: 1px solid black;
+                width: 62vw;
+            }
+            .dc5 {
+                font-size: 11px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='job-change-container'>
+            <h3>State of Florida</h3>
+            <h3>Department of Corrections</h3>
+            <h2>REQUEST FOR JOB CHANGE</h2>
+            <br />
+            <table>
+                <tr>
+                    <td class='cell-title'>Inmate Name:</td>
+                    <td class='cell-name-underline'><%= lastName%>, <%= firstName%></td>
+                    <td class='cell-gap'></td>
+                    <td class='cell-title'>DC Number:</td>
+                    <td class='cell-dc-underline'><%=dc%></td>
+                </tr>
+            </table>
+            <table>
+                <tr class='space-row'><td></td></tr>
+                <tr>
+                    <td class='cell-title'>Current Job Assignment:</td>
+                    <td class='cell-currjob-underline'>
+                        <%=currAM%> / <%=currPM%>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr class='space-row'><td></td></tr>
+                <tr>
+                    <td class='cell-title'>Requested Job Assignment:</td>
+                    <td class='cell-currjob-underline'>
+                        <%= newJobAM %><%=' / ' + newJobPM %>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr class='space-row'><td></td></tr>
+                <tr>
+                    <td>Reason for Job Change:</td>
+                    <td class='job-reason'><%=reason%></td>
+                </tr>
+            </table>
+            <table>
+                <tr><td class='space-row-2'></td></tr>
+                <tr><td class='space-row-2'></td></tr>
+                <tr><td class='space-row-2'></td></tr>
+                <tr><td class='space-row-2'></td></tr>
+                <tr><td class='space-row-2'></td></tr>
+                <tr><td class='space-row-2'></td></tr>
+                <tr><td class='space-row-2'></td></tr>
+            </table>
+            <br /><br />
+            Approve/Disapprove &nbsp;&nbsp;&nbsp; ______________________________________________
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Current Work Supervisor
+            <br /><br />
+            Approve/Disapprove &nbsp;&nbsp;&nbsp; ______________________________________________
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Current Department Head
+            <br /><br />
+            Approve/Disapprove &nbsp;&nbsp;&nbsp; ______________________________________________
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Requested Work Supervisor
+            <br /><br />
+            Approve/Disapprove &nbsp;&nbsp;&nbsp; ______________________________________________
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Requested Department Head
+            <br /><br />
+            Approve/Disapprove &nbsp;&nbsp;&nbsp; ______________________________________________
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Classification Supervisor
+            <br /><br /><br /><br />
+            <span class='dc5'>DC6-132 (3/03)</span>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+
+.relcell {
+    position: relative;
+}
+
+.job-change-modal {
+    position: absolute;
+    top: -180px;
+    right: 220px;
+    width: auto;
+    height: 530px;
+    padding: 10px;
+    background-color: chocolate;
+    border-radius: 6px;
+    box-shadow: black 4px 4px 4px;
+}
+
+.job-change-modal textarea {
+    border: 3px solid lightgrey;
+    border-radius: 4px;
+    padding: 5px;
+    width: 330px;
+}
