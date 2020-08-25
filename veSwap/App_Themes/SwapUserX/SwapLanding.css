@@ -1,0 +1,463 @@
+﻿
+
+/*___________________ Head content area ___________________*/
+.slogancontain
+{
+    position: relative;
+    font-family: timeburn, Constantia;
+    flex: 1;
+    margin: 1em 0 0 1%;
+    background: rgba(15, 22, 38, .8);
+    font-size: 2.5em;
+    text-align: center;
+    padding: .25em 0 0 0;
+}
+.slogan
+{
+    color: #F5F5F5;
+    padding: .25em 1em .15em 1em;
+}
+
+
+/*___________________ Main Content area for landing page ____________________ */
+.loginmobile a, .loginpanel a { color: Orange; text-decoration: none; }
+.bodyheader
+{
+    padding: 1em 0;
+    background: rgba(15, 22, 38, .2);
+}
+.checkboxphrases { margin-left: 1em; float: left; }
+
+.phrase
+{
+    margin-left: 3em;
+    width: 140px;
+    text-align: center;
+    float: left;
+    background-color: rgba(15, 22, 38, .2);
+    border-radius: 5px;
+}
+.phrase img
+{
+    width: 80px;
+    margin-left: 15px;
+}
+.phrasetxt
+{
+    font-family: timeburn;
+    font-size: 1.5em;
+    color: White;
+}
+.loginpanel
+{
+    color: White;
+    float: right;
+    margin: 0 5em 0 0;
+    width: 24em;
+    padding: 1em 1em 1.5em 1em;
+    background: rgba(15, 22, 38, .8);
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+.loginpanel > table
+{
+    margin-left: 3em;
+}
+.loginbut
+{
+    color: #FF533D;
+    background: rgba(15, 22, 38, .7);
+    background-size: 100% 100%;
+    border: 2px solid #FF533D;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: timeburn;
+    padding: .25em .5em;
+    margin-right: 0;
+}
+.loginbut:hover { color: Gold; }
+.flexmidlanding
+{
+    flex: 1;
+    background: rgba(15, 22, 38, 0);
+    margin: .5em 0;
+}  
+.bodyheader h2
+{
+    font-size: 2em;
+    color: #F5F5F5;
+    font-family: timeburn;
+    text-align: center;
+}
+.flexmidlanding h2
+{
+    font-size: 2em;
+    color: #3D424F;
+    font-family: timeburn;
+    text-align: center;
+}
+.overview
+{
+    color: White;
+    display: inline-block;
+    margin: 0 0 0 5em;
+    padding: 0 1em;
+    height: 20em;
+    width: 24em;
+}
+.overview img
+{
+    opacity: .8;
+    margin-left: -30%;
+    padding-bottom: -10em;
+}   
+.signup
+{
+    color: White;
+    position: relative;
+    width: 24em;
+    padding: 0 1em;
+    margin: 0 5em 0 0;
+    float: right;
+    height: auto;
+    background: rgba(15, 22, 38, .8);
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+    -moz-box-shadow:    0px 0px 8px rgba(0,0,0,0.3);
+    box-shadow:         0px 0px 8px rgba(0,0,0,0.3);
+}
+.roadmap
+{
+    width: 100%;
+    font-size: 3em;   
+}
+.roadmap table
+{
+    width: 60%;
+    background: ;
+    margin: 0 auto;
+    margin-top: 1em;
+}
+.roadmap table tr
+{
+    margin: 0 0 4em 0;
+}
+/* _________ Corner Ribbon _________ */
+.ribbon {
+  position: absolute;
+  right: -5px; top: -5px;
+  z-index: 1;
+  overflow: hidden;
+  width: 75px; height: 75px;
+  text-align: right;
+}
+.ribbon span 
+{
+  font-family: timeburn, Arial;
+  font-size: 16px;
+  color: #FFF;
+  text-align: center;
+  line-height: 20px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  width: 100px;
+  display: block;
+  background: #79A70A;
+  background: linear-gradient(#9BC90D 0%, #79A70A 100%);
+  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 19px; right: -21px;
+}
+.ribbon span::before 
+{
+  content: "";
+  position: absolute; left: 0px; top: 100%;
+  z-index: -1;
+  border-left: 3px solid #79A70A;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #79A70A;
+}
+.ribbon span::after 
+{
+  content: "";
+  position: absolute; right: 0px; top: 100%;
+  z-index: -1;
+  border-left: 3px solid transparent;
+  border-right: 3px solid #79A70A;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #79A70A;
+}
+
+.signup table 
+{
+    margin: .5em 7%;
+}
+.signuptbl tr { margin-bottom: 1.5em; }
+.signuptbl td, .logintbl td
+{
+    position: relative;
+}
+.submit input
+{
+    margin-right: 3.1em;
+}
+.forgot 
+{
+    position: absolute;
+    top: 5px;
+    font-size: .75em;      
+}
+.forgot a
+{
+    color: #FF533D;
+    font-size: 1.15em;
+    text-decoration: none;
+}
+.signuptxtbox:hover + .validbox, .signuptxtbox:focus + .validbox
+{
+   opacity: .7;
+   margin-left: -14.5em;
+}
+.resizesignupnamecells
+{
+    width: 100px;   
+}
+.signuptxtboxnm
+{
+    width: 91.5%;
+}
+.disclaimer
+{
+    padding-left: 2em;
+    width: 70%;
+    text-align: center;
+    font-size: .75em;
+}
+.disclaimer a
+{
+    text-decoration: none;  
+    color: #FF533D; 
+}
+.mobilelanding { display: none; }
+@media screen and (max-device-width : 768px) and (orientation : landscape)
+{
+    .mobilelanding
+    {
+        display: block;
+        font-size: 2em;
+        text-align: center;
+    }
+    .mobilelanding h3 { display: block; margin: .5em 0; font-size: 1.5em; }
+    .mobilelanding dl
+    {
+        width: 100%;
+    }
+    .mobilelanding dt
+    {
+        font-family: timeburn, Sans-Serif;
+        background: #E37222;
+        padding: 1.25em;
+        text-align: center;
+    }   
+    .mobilelanding dt:first-of-type
+    {
+        margin-bottom: 1em;
+    }
+    .mobilelanding dt a 
+    {
+        text-decoration: none;
+        color: Black;
+        font-size: 1.75em;
+    }
+    .mobilefleximg
+    {
+        display: flex;
+        flex-flow: row;
+    }
+    .mobilefleximg > img { height: 170px; }
+    .flexmidmobile
+    {
+        flex: 1;
+    }
+    .flexmidmobile img { height: 130px; }
+    .signupsteps
+    {
+        font-family: timeburn, Sans-Serif;
+        margin: .5em 0;
+        font-size: 2.5em;
+    }
+    .signupsteps span:first-of-type 
+    { 
+        font-weight: bold;
+        color: Green;
+        margin-right: 1em; 
+    }
+    .loginpanel, .checkboxphrases, .slogancontain, .signupcontain, .bodyheader
+    {
+        display: none;
+    }
+    .signup
+    {
+        width: 100%; 
+        margin: 0;
+        font-size: 2em;
+    }
+    .signup table 
+    {
+        margin: .5em 0 .25em .85em;
+    }
+    .signuptbl { width: 93%; }
+    .signuptbl .signuptxtboxnm { width: 96%; }
+    .loginmobile
+    {
+        color: White;
+        position: relative;
+        padding: 1.5em 0;
+        height: auto;
+        background: rgba(15, 22, 38, .8);
+        border-radius: 10px;
+        width: 100vw; 
+        margin: 1em 0;
+        font-size: 2em;
+    }
+    .loginmobile .loginbut
+    {
+        font-size: 2em; 
+    }
+    .loginmobile table { width: 100%; }
+    .loginmobile .logintbl caption { font-family: timeburn; font-size: 1.5em; margin-bottom: .5em; }
+    .loginmobile .logintbl input[type=text], .loginmobile .logintbl input[type=password] 
+    { 
+        width: 94%; 
+        margin-left: 3%;
+    }
+    .loginslogan { margin-top: .25em; text-align: center; font-family: timeburn, Sans-Serif; font-size: 3em; }
+    .submit input
+    {
+        margin-right: 5em;
+    }
+    .disclaimer
+    {
+        padding-left: 2.75em;
+    }
+    .continuebut { margin-right: 3em; }
+    .signuptxtbox:hover + .validbox, .signuptxtbox:focus + .validbox, .validboxviz
+    {
+       opacity: .9;
+       margin-left: 4em;
+       z-index: 1000;
+    }
+}
+@media screen and (max-device-width : 420px) and (orientation : portrait)
+{
+    .mobilelanding
+    {
+        display: block;
+        font-size: 4em;
+        text-align: center;
+    }
+    .mobilelanding h3 { display: block; margin: .5em 0; font-size: 1.5em; }
+    .mobilelanding dl
+    {
+        width: 100%;
+    }
+    .mobilelanding dt
+    {
+        font-family: timeburn, Sans-Serif;
+        background: #E37222;
+        padding: 1.25em;
+        text-align: center;
+    }   
+    .mobilelanding dt:first-of-type
+    {
+        margin-bottom: 1em;
+    }
+    .mobilelanding dt a 
+    {
+        text-decoration: none;
+        color: Black;
+        font-size: 1.5em;
+    }
+    .mobilefleximg
+    {
+        display: flex;
+        flex-flow: row;
+    }
+    .flexmidmobile
+    {
+        flex: 1;
+    }
+    .signupsteps
+    {
+        font-family: timeburn, Sans-Serif;
+        margin: 1em 0;
+        font-size: 3.5em;
+    }
+    .signupsteps span:first-of-type 
+    { 
+        font-weight: bold;
+        color: Green;
+        margin-right: 1em; 
+    }
+    .signup
+    {
+        width: 100%; 
+        margin: 0;
+        font-size: 3em;
+    }
+    .signup table 
+    {
+        margin: .5em 0 .25em .5em;
+    }
+    .signuptbl { width: 98%; }
+    .signuptbl .signuptxtboxnm
+    {
+        width: 96%;   
+    }
+    .loginmobile
+    {
+        color: White;
+        position: relative;
+        padding: 1.5em 0;
+        height: auto;
+        background: rgba(15, 22, 38, .8);
+        border-radius: 10px;
+        width: 100vw; 
+        margin: 1em 0;
+        font-size: 3em;
+    }
+    .loginmobile .loginbut
+    {
+        font-size: 2em; 
+    }
+    .loginmobile table { width: 100%; }
+    .loginmobile .logintbl caption { font-family: timeburn; font-size: 1.5em; margin-bottom: .5em; }
+    .loginmobile .logintbl input[type=text], .loginmobile .logintbl input[type=password] 
+    { 
+        width: 94%; 
+        margin-left: 3%;
+    }
+    .loginslogan { margin-top: .5em; text-align: center; font-family: timeburn, Sans-Serif; font-size: 4em; }
+    .submit input
+    {
+        margin-right: 2em;
+    }
+    .disclaimer
+    {
+        padding-left: 4.25em;
+    }
+    .signuptxtbox:hover + .validbox, .signuptxtbox:focus + .validbox, .validboxviz
+    {
+       opacity: .9;
+       margin-left: 4em;
+       z-index: 1000;
+    }
+    .continuebut { margin-right: 3em; }
+    .loginpanel, .checkboxphrases, .slogancontain, .signupcontain, .bodyheader
+    {
+        display: none;
+    }
+}

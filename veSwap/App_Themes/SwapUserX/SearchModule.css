@@ -1,0 +1,494 @@
+﻿
+.searchmobileview { display: none; }
+
+.searchdesktopview
+{
+    float: left; 
+    text-align: center;
+    width: 24%;
+    min-width: 18em;
+    min-height: 60%;
+}
+.searchdesktopview select { width: 220px; }
+.searchdesktopview label
+{
+    font-size: 1em; 
+    text-align: justify;
+}
+.searchdesktopview dl dt, .searchdesktopview dl dd
+{
+    margin: 0 0 .35em 0;
+}
+.searchdesktopview dl dd
+{
+    text-align: left;
+    margin-left: 2em;
+}
+.searchdesktopview dl dt
+{
+    margin-bottom: 1em;
+}
+.searchbut
+{
+    color: #FF533D;
+    background: rgb(18, 25, 41);
+    border: 2px solid #FF533D;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.6em;
+    font-family: timeburn;
+    padding: .25em;
+}
+.searchbut:hover { color: Gold; }
+.searchresults
+{
+    float: left;
+    margin: 2em 0 0 0;
+    width: 60%;
+}
+.searchresults > table
+{
+    margin: 0 auto;
+}
+.searchmainresults
+{
+    position: relative;
+    overflow: hidden;
+}
+.swapbtn
+{
+    font-family: timeburn, Arial;
+    position: absolute;
+    right: 0;
+    bottom: 10px;    
+    background: White;
+    border: 0;
+    cursor: pointer;
+    font-size: 1.5em;
+    padding: 4px 20px 4px 8px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    background-image: url(Images/BlipSmall.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+    transform: translateX(20px);
+    transition: all .7s;
+}
+.swapbtn:hover
+{
+    transform: translateX(0);
+}
+.searchextrascontainer
+{
+    position: relative;
+    height: 80px;
+    margin-bottom: 1.5em;
+}
+.xtraimages
+{
+    margin-right: .5em;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.xtraimages img
+{
+    height: 80px;
+}
+.extrainforating
+{
+    position: absolute;
+    font-family: timeburn;
+    text-align: center;
+    right: 0;
+    top: 5px;
+    height: 50px;
+    width: 50px;
+    padding: 1em;
+    font-size: 1.25em;
+    background: White;
+    border-radius: 50%;
+    border: 1px solid #FF9326;
+}
+.extrainforating h3 { font-size: 1em; margin-left: -5px; }
+.defaultpanel
+{
+    font-family: timeburn, Constantia;
+    font-size: 2em;
+    color: rgba(0, 0, 0, .4);
+    text-align: center;
+    padding: .5em 0 0 0;
+}
+.defaultpanel img
+{
+    margin: 0 auto;
+    display: block;
+}
+#VehicleYearFrom, #VehicleYearTo { width: 6.5em; }
+.searchmaxyear { margin-left: 17px; margin-top: 20px; }
+.mainsearchimg
+{
+     width: 35em;
+}
+.loadingimg
+{  
+     position: absolute;
+     bottom: -10px;
+     right: 14em;
+}
+.choosevehiclemodal
+{
+    display: none;
+    z-index: 1000;
+    position: absolute;
+    top: 3em;
+    left: 5em;
+    background: White;
+    height: 300px;
+    width: 420px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.7);
+}
+.choosevehiclemodal img
+{
+    text-align: center;
+    float: left;
+    margin: 2em 1em 0 1em;
+    width: 150px;
+    border: 2px solid transparent;
+}
+.choosevehiclemodal table { margin: 0 auto; }
+.choosevehiclemodal img:hover
+{
+    border: 2px solid #66cc66;
+}
+.choosevehiclemodal h3 { display: block; margin-top: 20px; }
+.selectdatemodal
+{
+    display: none;
+    z-index: 1000;
+    position: absolute;
+    top: -5em;
+    left: 5.2em;
+    background: White;
+    min-height: 340px;
+    width: 400px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.7);
+}
+#RequestDateFrom, #RequestDateTo { display: block; margin: 0 auto; margin-top: 1em; }
+.selectdatemodal .close { padding-top: 8px; top: -20px; right: -20px; }
+.selectdatetxt { margin-top: 1.5em; }
+.selectdatetxt input
+{
+    margin-top: 1em;
+}
+.eventcompletemodal
+{
+    position: absolute;
+    display: none;
+    width: 30em;
+    height: 200px;
+    background: rgba(102, 204, 102, .9); 
+    text-align: center;
+    z-index: 1000;
+}
+.eventcompletetxt
+{
+    margin-top: 2em;
+    font-family: timeburn, Arial;
+    font-size: 1.75em;
+}
+@media screen and (max-device-width : 768px) and (orientation : landscape)
+{
+    .searchdesktopview label { display: none; }
+    .defaultpanel
+    {
+        font-size: 4em;
+        color: rgba(0, 0, 0, .7);
+    }
+    .searchmobileview { display: block; text-align: center; }
+    .searchbut
+    {
+        font-size: 1.7em;
+        padding: .25em 1.75em .25em .25em;
+        background-image: url(Images/SearchButImg.png);
+        background-repeat: no-repeat;
+        background-position: right;
+    }
+    .expandoptions, .collapseoptions
+    {
+        display: inline-block;
+        width: 98vw;
+        padding: 15px 0 15px 0;
+        font-size: 3.5em; 
+        font-family: timeburn, Times New Roman;
+        background: rgba(100, 100, 100, .4);  
+        border-radius: 8px;
+    }
+    .searchdesktopview dl dd {margin-left: 0; }
+    .searchdesktopview dl dt { margin-bottom: .5em; }
+    .searchdesktopview
+    {
+        min-width: 100vw;
+        font-size: 2.5em;  
+    }
+    .searchdesktopview input[type=text], .searchdesktopview select
+    {
+        width: 85vw;
+        text-align: center;
+    }
+    .hidemobile b { display: inline-block; width: 250px; }
+    #VehicleYearFrom, #VehicleYearTo { width: 8em; }
+    #VehicleYearTo { margin-left: 0; margin-top: 30px; }
+    .searchresults
+    {
+        width: 100%;
+    }
+    .mainsearchimg { width: 100%; }
+    
+    
+    .swapbtn
+    {
+        font-size: 4em;
+        padding: 4px 20px 4px 8px;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+    }
+    .searchextrascontainer
+    {
+        font-size: 2.5em;
+        height: 220px;
+        margin-bottom: 1em;
+        width: 100%;
+    }
+    .searchextrascontainer h3
+    {
+        font-size: 1em;
+    }
+    .xtraimages
+    {
+        width: 180px;
+        height: 180px;
+    }
+    .xtraimages img
+    {
+        height: 180px;
+    }
+    .extrainforating
+    {
+        top: -295px;
+        height: 100px;
+        width: 100px;
+        font-size: 1em;
+        background: rgba(300, 300, 300, .9);
+        border-radius: 50%;
+        border: 0;
+    }
+    .extrainforating h3 { font-size: 1.2em; margin-left: -25px; }
+    .choosevehiclemodal
+    {
+        top: 4.5em;
+        left: 6em;
+        min-height: 540px;
+        width: 80%;
+        border-radius: 4px;
+    }
+    .choosevehiclemodal img
+    {
+        float: left;
+        margin: 4.5em 0 0 1em;
+        width: 47%;
+        border: 2px solid transparent;
+    }
+    .choosevehiclemodal img:hover
+    {
+        border: 5px solid #66cc66;
+    }
+    .choosevehiclemodal table { margin: 0 auto; }
+    .choosevehiclemodal h3 { margin-top: 20px; font-size: 4em; }
+    .choosevehiclemodal .close
+    {
+        font-size: 5em;
+        top: -20px; 
+        right: 1px;
+    }
+    .selectdatemodal
+    {
+        min-height: 440px;
+        width: 85%;
+        padding: 1em 1em;
+    }
+    .selectdatemodal .regsmbut
+    {
+        font-size: 4em;   
+    }
+    .selectdatemodal h3 { font-size: 3em; }
+    #RequestDateFrom, #RequestDateTo { display: block; margin: 0 auto; margin-top: .25em; font-size: 3em; }
+    .selectdatemodal .close { font-size: 3em; font-weight: bold; padding-top: 0; padding: 20px 30px 20px 30px; top: -50px; right: -20px; }
+    .selectdatetxt { margin-top: 1.5em; }
+    .selectdatetxt input
+    {
+        margin-top: 1em;
+    }
+    .hidemobile { display: none; }
+    .eventcompletemodal
+    {
+        width: 900px;
+        height: 450px;
+    }
+    .eventcompletemodal .modalexit { font-size: 3.5em; }
+    .eventcompletetxt { font-size: 4em; }
+    .loadingimg
+    {  
+         width: 200px;
+         right: 28em;
+    }
+}
+@media screen and (max-device-width : 420px) and (orientation : portrait)
+{
+    .searchdesktopview label { display: none; }
+    .defaultpanel
+    {
+        font-size: 4em;
+        color: rgba(0, 0, 0, .7);
+    }
+    .searchmobileview { display: block; text-align: center; }
+    .searchbut
+    {
+        font-size: 1.2em;
+        padding: .25em 1.75em .25em .25em;
+        background-image: url(Images/SearchButImg.png);
+        background-repeat: no-repeat;
+        background-position: right;
+    }
+    .expandoptions, .collapseoptions
+    {
+        display: inline-block;
+        width: 98vw;
+        padding: 15px 0 15px 0;
+        font-size: 5em; 
+        font-family: timeburn, Times New Roman;
+        background: rgba(100, 100, 100, .4);  
+        border-radius: 8px;
+    }
+    .searchdesktopview dl dd {margin-left: 0; }
+    .searchdesktopview dl dt { margin-bottom: .5em; }
+    .searchdesktopview
+    {
+        min-width: 100vw;
+        font-size: 4em;  
+    }
+    .searchdesktopview input[type=text], .searchdesktopview select
+    {
+        width: 85vw;
+        text-align: center;
+    }
+    .hidemobile b { display: inline-block; width: 220px; }
+    #VehicleYearFrom, #VehicleYearTo { width: 5.5em; }
+    #VehicleYearTo { margin-left: 0; margin-top: 40px; }
+    .searchresults
+    {
+        width: 100%;
+    }
+    .mainsearchimg { width: 100%; }
+    .swapbtn
+    {
+        font-size: 4em;
+        padding: 4px 20px 4px 8px;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+    }
+    .searchextrascontainer
+    {
+        font-size: 2.5em;
+        height: 220px;
+        margin-bottom: 1em;
+        width: 100%;
+    }
+    .searchextrascontainer h3
+    {
+        font-size: 1em;
+    }
+    .xtraimages
+    {
+        width: 180px;
+        height: 180px;
+    }
+    .xtraimages img
+    {
+        height: 180px;
+    }
+    .extrainforating
+    {
+        top: -295px;
+        height: 100px;
+        width: 100px;
+        font-size: 1em;
+        background: rgba(300, 300, 300, .9);
+        border-radius: 50%;
+        border: 0;
+    }
+    .extrainforating h3 { font-size: 1.2em; margin-left: -25px; }
+    .choosevehiclemodal
+    {
+        top: 1.5em;
+        left: 0;
+        min-height: 600px;
+        width: 100%;
+        border-radius: 4px;
+    }
+    .choosevehiclemodal img
+    {
+        float: left;
+        margin: 4.5em 0 0 1em;
+        width: 47%;
+        border: 2px solid transparent;
+    }
+    .choosevehiclemodal img:hover
+    {
+        border: 5px solid #66cc66;
+    }
+    .choosevehiclemodal table { margin: 0 auto; }
+    .choosevehiclemodal h3 { margin-top: 20px; font-size: 4em; }
+    .choosevehiclemodal .close
+    {
+        font-size: 5em;
+        top: -20px; 
+        right: 1px;
+    }
+    .selectdatemodal
+    {
+        min-height: 440px;
+        width: 95%;
+        padding: 1em 0;
+    }
+    .selectdatemodal .regsmbut
+    {
+        font-size: 6em;   
+    }
+    .selectdatemodal h3 { font-size: 4em; }
+    #RequestDateFrom, #RequestDateTo { display: block; margin: 0 auto; margin-top: 1em; font-size: 5em; }
+    .selectdatemodal .close { font-size: 3em; font-weight: bold; padding-top: 0; padding: 20px 30px 20px 30px; top: -50px; right: -20px; }
+    .selectdatetxt { margin-top: 1.5em; }
+    .selectdatetxt input
+    {
+        margin-top: 1em;
+    }
+    .hidemobile { display: none; }
+    .eventcompletemodal
+    {
+        width: 900px;
+        height: 450px;
+    }
+    .eventcompletemodal .modalexit { font-size: 3.5em; }
+    .eventcompletetxt { font-size: 4em; }
+    .loadingimg
+    {  
+         width: 200px;
+         right: 28em;
+    }
+}

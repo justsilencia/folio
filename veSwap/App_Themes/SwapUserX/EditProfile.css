@@ -1,0 +1,347 @@
+﻿h3
+{
+    font-family: Constantia;
+    display: inline;
+    font-size: 22px;
+}
+p { font-family: Constantia; font-size: 12px; }
+.layouttbl
+{
+    margin: .5em 3em 3em 3em;
+}
+.editprocol1
+{
+    color: White;
+    float: left;
+    height: auto;
+    border-radius: 4px;
+    background: rgba(15, 22, 38, .8);
+}
+.editprocol1 table tr td
+{
+    padding-bottom: 1em;
+}
+#Col1 tr td { position: relative; }
+.editprocol2
+{
+    text-align: center;
+    color: White;
+    margin: 0 1em;
+    padding: 1em;
+    float: left;
+    min-height: 72vh;
+    width: auto;
+    border-radius: 4px;
+    background: rgba(15, 22, 38, .8);
+}
+.currentcars
+{
+    float: left;
+    min-height: 400px;
+    height: auto;
+    background-color: rgba(171,152,122,.2);
+    border-radius: 4px;
+    text-align: center;
+}
+.newcar
+{
+    text-align: center;
+    margin: 0 0 0 3em;
+    float: left;
+    color: White;
+    width: auto;
+    height: auto;
+}
+.newcar select, .newcar #car-years
+{
+    width: 227px; 
+}
+.currentcars img 
+{ 
+    width: 180px;  
+}
+.nocars
+{
+    margin: 1.5em 0 0 0;
+}
+.newcar img { width: 250px;}
+.newcar table { margin: 0 auto; }
+.newcar table tr td { padding-bottom: 1em; position: relative; }
+#cpMainContent_RadioButtonList1 tr td { padding-right: 1em; }
+.cartypebox { position: relative; }
+#AreaCode, #Num1 { width: 40px; }
+#Num2 { Width: 78px; }
+.newcar h1 { margin: 0; }
+.carvaluebox, .cartypebox { position: relative; border: 1px solid white; margin-bottom: .5em; }
+.carvaluebox label
+{
+    display: inline-block;
+    width: 12em;
+    border: 2px solid white;
+    margin-bottom: -.35em;
+    padding: .25em;
+}
+.carvaluebox input[type=radio]:checked + label, .cartypebox input[type=radio]:checked + label
+{ 
+    font-weight: bold;
+    color: Black;
+    background-color: LightGreen;
+}
+.cartypebox label
+{
+    display: inline-block;
+    margin: 15px .25em 0 .25em;
+    width: 3em;
+    border: 2px solid white;
+}
+.editcarmodal table { margin: 0 auto; }
+.editcarmodal td { position: relative; }
+.editcarmodal img { width: 280px; }
+.ismainimg
+{
+    position: absolute;
+    bottom: 1px;
+    left: 19%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: rgba(0, 0, 0, .8);
+    color: White;
+    font-family: timeburn, Arial;
+    padding: 5px 10px 5px 10px;
+}
+.editimg { bottom: 0; padding: 5px 10px 2px 10px; }
+#HoverLabelMobile { display: none; }
+.edittbl
+{
+    width: 400px;
+    margin: .5em auto;
+}
+.editimgcontainer
+{
+    display: inline-block;
+    margin: 0 auto;
+    padding: 0 2em;
+} 
+#PersImage { width: 240px; margin-left: 2.75em; }
+/* ___________ Validate radio buttons ___________ */
+.validboxvizrad
+{
+    display: block;
+    position: absolute;
+    opacity: 1;
+    color: Black;
+    top: -.45em;
+    left: -15em;
+    padding: 1em;
+    width: 11em;
+    height: 2.5em;
+    background: #FF6666;
+    border-radius: 4px;
+    box-shadow: 0 0 2px .1em Black;
+    transition: opacity 0.3s ease-out, margin 0.3s ease-out;
+}
+.validboxvizrad::after
+{
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 103%;;
+	top: 0;
+	border-width: 20px 10px;
+	border-style: solid;
+	border-color: #FF6666 transparent transparent transparent;
+	transform: rotate(-90deg);
+}
+#InjectYear, #InjectMake, #InjectModel { display: none; }
+/* _______ End validate. __________ */
+
+/* _________ Media Queries ________________ */
+
+@media screen and (max-device-width : 768px) and (orientation : landscape)
+{
+    #PersImage { width: 440px; margin-left: 5em; }
+    .layouttbl
+    {
+        margin: 0 0 0 0;
+    }
+    .editprocol1
+    {
+        padding: 0;
+        font-size: 3em; 
+        margin:  0;
+        width: 100vw;
+    }
+    .editprocol2
+    {
+        font-size: 3em;
+        width: 95vw;
+        margin: 0;
+        padding: 1vh 2.5vw 1vh 2.5vw;
+    }
+    .currentcars
+    {
+        margin: 0 0 0 .5em;
+        width: 95vw;
+    }
+    #AreaCode, #Num1 { width: 130px; }
+    #Num2 { Width: 240px; }
+    #HoverLabelMobile { display: block; }
+    #HoverLabel { display: none; }
+    .editimg { margin-left: calc(50% - 325px); }
+    .editprocol2
+    {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+    }
+    .newcar
+    {
+        margin: 0 0 0 0;
+    }
+    .editvemobile
+    {
+        width: 100%;
+        font-size: 4em;
+        margin: 0 auto;
+    }
+    .editvemobile img
+    {
+        width: 100vw;
+    }
+    .editvemobile td
+    {
+        position: relative;
+    }
+    .editvemobile h3 { font-size: 1.1em; }
+    .ismainimg
+    {
+        position: absolute;
+        bottom: 0;
+        left: 19%;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background: rgba(0, 0, 0, .8);
+        color: White;
+        font-family: timeburn, Arial;
+        padding: 10px;
+    }
+    .btndeleteimg
+    {
+        float: right;   
+    }
+    #cpMainContent_CarsGridView
+    {
+        width: 98%;
+    }
+    .newcar select, .newcar #car-years
+    {
+        width: 100%;
+    }
+    .newcar option
+    {
+        font-size: .75em;
+    }
+}
+@media screen and (max-device-width : 420px) and (orientation : portrait)
+{
+    #PersImage { width: 640px; margin-left: 3em; }
+    .layouttbl
+    {
+        margin: 0 0 0 0;
+    }
+    .editprocol1
+    {
+        padding: 0;
+        font-size: 3em; 
+        margin:  0;
+        width: 100vw;
+    }
+    .editprocol2
+    {
+        font-size: 3em;
+        width: 95vw;
+        margin: 0;
+        padding: 1vh 2.5vw 1vh 2.5vw;
+    }
+    .currentcars
+    {
+        margin: 0 0 0 .5em;
+        width: 95vw;
+    }
+    #AreaCode, #Num1 { width: 130px; }
+    #Num2 { Width: 240px; }
+    #HoverLabelMobile { display: block; }
+    #HoverLabel { display: none; }
+    .editimg { margin-left: calc(50% - 300px); }
+    .editprocol2
+    {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+    }
+    .newcar
+    {
+        margin: 0 0 0 0;
+    }
+    .editvemobile
+    {
+        width: 95vw;
+        font-size: 4em;
+        margin: 0 auto;
+    }
+    .editvemobile img
+    {
+        width: 95vw;
+    }
+    .editvemobile td
+    {
+        position: relative;
+    }
+    .editvemobile h3 { font-size: 1.1em; }
+    .ismainimg
+    {
+        position: absolute;
+        bottom: 0;
+        left: 19%;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background: rgba(0, 0, 0, .8);
+        color: White;
+        font-family: timeburn, Arial;
+        padding: 10px;
+    }
+    .btndeleteimg
+    {
+        float: right;   
+    }
+    #cpMainContent_CarsGridView
+    {
+        width: 98%;
+    }
+    .newcar select, .newcar #car-years
+    {
+        width: 100%;
+    }
+    .newcar option
+    {
+        font-size: .5em;
+    }
+    .validboxvizrad
+    {
+        top: -5em;
+        left: 3.75em;
+        height: 2.5em;
+        background: #FF6666;
+        border-radius: 4px;
+        box-shadow: 0 0 2px .1em Black;
+        transition: opacity 0.3s ease-out, margin 0.3s ease-out;
+    }
+    .validboxvizrad::after
+    {
+	    left: 48%;;
+	    top: 85%;
+	    border-width: 30px 15px;
+	    transform: rotate(-240deg);
+    }
+}

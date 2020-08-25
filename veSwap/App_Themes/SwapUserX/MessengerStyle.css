@@ -1,0 +1,186 @@
+﻿
+.inboxcontainer
+{
+    text-align: center;
+}
+.inboxtable
+{
+    margin: 0 auto;
+    width: 70%;
+}
+.containmsgimg
+{
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.containmsgimg img 
+{
+    width: 150px;
+}
+.inboxdesccell
+{
+    font-family: cormo;
+    background: #71DCE2;
+    width: 100%;
+    border-radius: 20px;
+    font-size: 1.75em;
+    box-shadow: inset 0 0 4px 2px Gray;
+}
+.inboxdesccell:hover
+{
+    box-shadow: inset 0px 0px 6px 2px Black;
+}
+.inboxcontainer a
+{
+    text-decoration: none;
+    color: Black;
+}
+.messengertableoutermost
+{
+    width: 100%;
+    margin: 1em auto;
+}
+.msgfrommebox
+{
+    margin-left: 30px;
+    font-family: cormo;
+    font-size: 1.2em;
+    background: #71DCE2;
+    border-radius: 8px;
+    padding: 1em;
+    width: 75%;
+}
+.msgfromotherbox
+{   
+    font-family: cormo;
+    font-size: 1.2em;
+    background: #EAE3EA;
+    border-radius: 8px;
+    padding: 1em;
+    width: 75%;
+}
+#NewMsgInput
+{
+    width: 450px;
+    height: 100px;
+    border: solid 1px #71DCE2;
+}
+.msgbutcell { position: relative; }
+.msgloader 
+{
+    position: absolute;
+    top: 100px;
+    left: 10px;
+}
+#MsgNumNotice, #MobMsgNumNotice1
+{
+    color: Red;   
+}
+.m-wrapper 
+{ 
+    margin: 0 auto; 
+    width: 40vw; 
+    height: 50vh; 
+    padding: 0; 
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, .4);
+}
+#MobMsgNumNotice2
+{
+    font-family: Arial;
+    font-size: .75em;
+    background-color: red;
+    border-radius: 14px;
+    padding-right: 4px;
+}
+#MailBoxDataPager { display: block; margin-bottom: 1em; }
+#MailBoxDataPager a
+{
+    font-size: 1.5em;
+    color: #70BF53;
+}
+@media screen and (max-device-width : 768px) and (orientation : landscape)
+{
+    #MailBoxDataPager a { font-size: 3em; }
+    .msgngrheader h1 { font-size: 2.5em; }
+    .inboxcontainer h1 { font-size: 3.5em; }
+    .inboxtable
+    {
+        width: 90%;
+    }
+    .containmsgimg
+    {
+        width: 200px;
+        height: 200px;
+    }
+    .containmsgimg img 
+    {
+        width: 200px;
+    }
+    .inboxdesccell
+    {
+        font-size: 3.5em;
+    }
+    .m-wrapper { width: 92vw; height: 95vh; padding-bottom: 1.5em; }
+    .msgfrommebox
+    {
+        font-size: 2.5em;
+    }
+    .msgfromotherbox
+    {   
+        font-size: 2.5em;
+    }
+    #NewMsgInput
+    {
+        width: 700px;
+        height: 170px;
+        font-size: 1.5em;
+        margin-bottom: .7em;
+    }
+    .m-wrapper a { font-size: 3.5em; }
+}
+
+@media screen and (max-device-width : 420px) and (orientation : portrait)
+{
+    #MailBoxDataPager a { font-size: 4em; }
+    .msgngrheader h1 { font-size: 4em; }
+    .m-wrapper a { font-size: 4.5em; }
+    .inboxcontainer h1 { font-size: 4.5em; }
+    .inboxtable
+    {
+        width: 90%;
+    }
+    .containmsgimg
+    {
+        width: 200px;
+        height: 200px;
+    }
+    .containmsgimg img 
+    {
+        width: 200px;
+    }
+    .inboxdesccell
+    {
+        font-size: 3.5em;
+    }
+    .m-wrapper { width: 92vw; height: 60vh; padding-bottom: 1.5em; }
+    .msgfrommebox
+    {
+        margin-left: 30px;
+        font-size: 3.5em;
+        width: 80%;
+    }
+    .msgfromotherbox
+    {   
+        font-size: 3.5em;
+        width: 85%;
+    }
+    #NewMsgInput
+    {
+        width: 750px;
+        height: 300px;
+        font-size: 3em;
+        margin-bottom: 1em;
+    }
+}
