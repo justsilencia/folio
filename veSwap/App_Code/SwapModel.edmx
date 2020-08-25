@@ -1,0 +1,942 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SwapModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PasswordFormat" Type="int" Nullable="false" />
+          <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+          <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="Comment" Type="ntext" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LoweredUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+          <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+          <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserFrom" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="UserTo" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LastReceived" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MsgEvent">
+          <Key>
+            <PropertyRef Name="UId" />
+          </Key>
+          <Property Name="UId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="When" Type="datetime" Nullable="false" />
+          <Property Name="MsgType" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="IsRead" Type="bit" Nullable="false" />
+          <Property Name="UserFrom" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="UserTo" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProfileProperty">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="10" />
+          <Property Name="City" Type="nvarchar" MaxLength="30" />
+          <Property Name="State" Type="nchar" MaxLength="3" />
+          <Property Name="Zip" Type="int" />
+          <Property Name="ValueCategory" Type="tinyint" />
+          <Property Name="SelfImgUrl" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="RecMessage">
+          <Key>
+            <PropertyRef Name="UId" />
+          </Key>
+          <Property Name="UId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="3000" Nullable="false" />
+          <Property Name="IsRead" Type="bit" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="RequestEvent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RequestDate" Type="datetime" Nullable="false" />
+          <Property Name="RequestFrom" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="RequestTo" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Accept" Type="bit" />
+          <Property Name="DateAccepted" Type="datetime" />
+          <Property Name="FromVeId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ToVeId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateFrom" Type="datetime" Nullable="false" />
+          <Property Name="DateTo" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScheduledSwap">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MainRated" Type="bit" Nullable="false" />
+          <Property Name="OtherRated" Type="bit" Nullable="false" />
+          <Property Name="UserMain" Type="nvarchar" MaxLength="256" />
+          <Property Name="UserOther" Type="nvarchar" MaxLength="256" />
+          <Property Name="VeMain" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="VeOther" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DateFrom" Type="datetime" Nullable="false" />
+          <Property Name="DateTo" Type="datetime" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SentContact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserFrom" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="UserTo" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LastSent" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SentMessage">
+          <Key>
+            <PropertyRef Name="UId" />
+          </Key>
+          <Property Name="UId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="3000" Nullable="false" />
+          <Property Name="IsRead" Type="bit" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="SwapRating">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SwapId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="TradedWith" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Rating" Type="tinyint" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="250" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="DateFrom" Type="datetime" Nullable="false" />
+          <Property Name="DateTo" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TheTrove">
+          <Key>
+            <PropertyRef Name="tStamp" />
+            <PropertyRef Name="ip" />
+          </Key>
+          <Property Name="tStamp" Type="datetime" Nullable="false" />
+          <Property Name="ip" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="msg" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserVehicle">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="VehicleMake" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VehicleModel" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VehicleYear" Type="int" Nullable="false" />
+          <Property Name="VehicleType" Type="nvarchar" MaxLength="30" />
+          <Property Name="VehicleDescription" Type="nvarchar" MaxLength="300" />
+          <Property Name="VehicleMiles" Type="int" Nullable="false" />
+          <Property Name="VehicleValue" Type="money" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="ValueCategory" Type="tinyint" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Swap.dbo.ValueCategory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ValueCategory">
+          <Key>
+            <PropertyRef Name="Category" />
+            <PropertyRef Name="Range" />
+          </Key>
+          <Property Name="Category" Type="tinyint" Nullable="false" />
+          <Property Name="Range" Type="nvarchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VeImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="VehicleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="IsMain" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ZipDistance">
+          <Key>
+            <PropertyRef Name="ZipFrom" />
+            <PropertyRef Name="ZipTo" />
+          </Key>
+          <Property Name="ZipFrom" Type="int" Nullable="false" />
+          <Property Name="ZipTo" Type="int" Nullable="false" />
+          <Property Name="Distance" Type="decimal" Precision="6" Scale="2" />
+        </EntityType>
+        <Association Name="FK__aspnet_Me__UserI__22AA2996">
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Image_UserVehicle">
+          <End Role="UserVehicle" Type="Self.UserVehicle" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="VeImage" Type="Self.VeImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserVehicle">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VeImage">
+              <PropertyRef Name="VehicleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RecMessage_MsgEvent">
+          <End Role="MsgEvent" Type="Self.MsgEvent" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RecMessage" Type="Self.RecMessage" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="MsgEvent">
+              <PropertyRef Name="UId" />
+            </Principal>
+            <Dependent Role="RecMessage">
+              <PropertyRef Name="UId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SentMessage_MsgEvent">
+          <End Role="MsgEvent" Type="Self.MsgEvent" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SentMessage" Type="Self.SentMessage" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="MsgEvent">
+              <PropertyRef Name="UId" />
+            </Principal>
+            <Dependent Role="SentMessage">
+              <PropertyRef Name="UId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SwapRating_ScheduledSwap">
+          <End Role="ScheduledSwap" Type="Self.ScheduledSwap" Multiplicity="1" />
+          <End Role="SwapRating" Type="Self.SwapRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScheduledSwap">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SwapRating">
+              <PropertyRef Name="SwapId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserVehicle_ProfileProperty">
+          <End Role="ProfileProperty" Type="Self.ProfileProperty" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserVehicle" Type="Self.UserVehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileProperty">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserVehicle">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SwapModelStoreContainer">
+          <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MsgEvent" EntityType="Self.MsgEvent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfileProperty" EntityType="Self.ProfileProperty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecMessage" EntityType="Self.RecMessage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RequestEvent" EntityType="Self.RequestEvent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScheduledSwap" EntityType="Self.ScheduledSwap" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SentContact" EntityType="Self.SentContact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SentMessage" EntityType="Self.SentMessage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SwapRating" EntityType="Self.SwapRating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TheTrove" EntityType="Self.TheTrove" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserVehicle" EntityType="Self.UserVehicle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VeImage" EntityType="Self.VeImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZipDistance" EntityType="Self.ZipDistance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ValueCategory" EntityType="Self.ValueCategory" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ValueCategory].[Category] AS [Category], 
+[ValueCategory].[Range] AS [Range]
+FROM [dbo].[ValueCategory] AS [ValueCategory]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__aspnet_Me__UserI__22AA2996" Association="Self.FK__aspnet_Me__UserI__22AA2996">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Image_UserVehicle" Association="Self.FK_Image_UserVehicle">
+            <End Role="UserVehicle" EntitySet="UserVehicle" />
+            <End Role="VeImage" EntitySet="VeImage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RecMessage_MsgEvent" Association="Self.FK_RecMessage_MsgEvent">
+            <End Role="MsgEvent" EntitySet="MsgEvent" />
+            <End Role="RecMessage" EntitySet="RecMessage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SentMessage_MsgEvent" Association="Self.FK_SentMessage_MsgEvent">
+            <End Role="MsgEvent" EntitySet="MsgEvent" />
+            <End Role="SentMessage" EntitySet="SentMessage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SwapRating_ScheduledSwap" Association="Self.FK_SwapRating_ScheduledSwap">
+            <End Role="ScheduledSwap" EntitySet="ScheduledSwap" />
+            <End Role="SwapRating" EntitySet="SwapRating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserVehicle_ProfileProperty" Association="Self.FK_UserVehicle_ProfileProperty">
+            <End Role="ProfileProperty" EntitySet="ProfileProperty" />
+            <End Role="UserVehicle" EntitySet="UserVehicle" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SwapModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="SwapEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="aspnet_Membership" EntityType="SwapModel.aspnet_Membership" />
+          <EntitySet Name="aspnet_Users" EntityType="SwapModel.aspnet_Users" />
+          <AssociationSet Name="FK__aspnet_Me__UserI__22AA2996" Association="SwapModel.FK__aspnet_Me__UserI__22AA2996">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <EntitySet Name="ProfileProperties" EntityType="SwapModel.ProfileProperty" />
+          <EntitySet Name="UserVehicles" EntityType="SwapModel.UserVehicle" />
+          <AssociationSet Name="FK_UserVehicle_ProfileProperty" Association="SwapModel.FK_UserVehicle_ProfileProperty">
+            <End Role="ProfileProperty" EntitySet="ProfileProperties" />
+            <End Role="UserVehicle" EntitySet="UserVehicles" />
+          </AssociationSet>
+          <EntitySet Name="Contacts" EntityType="SwapModel.Contact" />
+          <EntitySet Name="MsgEvents" EntityType="SwapModel.MsgEvent" />
+          <EntitySet Name="RecMessages" EntityType="SwapModel.RecMessage" />
+          <EntitySet Name="SentContacts" EntityType="SwapModel.SentContact" />
+          <EntitySet Name="SentMessages" EntityType="SwapModel.SentMessage" />
+          <AssociationSet Name="FK_RecMessage_MsgEvent" Association="SwapModel.FK_RecMessage_MsgEvent">
+            <End Role="MsgEvent" EntitySet="MsgEvents" />
+            <End Role="RecMessage" EntitySet="RecMessages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SentMessage_MsgEvent" Association="SwapModel.FK_SentMessage_MsgEvent">
+            <End Role="MsgEvent" EntitySet="MsgEvents" />
+            <End Role="SentMessage" EntitySet="SentMessages" />
+          </AssociationSet>
+          <EntitySet Name="RequestEvents" EntityType="SwapModel.RequestEvent" />
+          <EntitySet Name="ValueCategories" EntityType="SwapModel.ValueCategory" />
+          <EntitySet Name="ZipDistances" EntityType="SwapModel.ZipDistance" />
+          <EntitySet Name="VeImages" EntityType="SwapModel.VeImage" />
+          <AssociationSet Name="FK_Image_UserVehicle" Association="SwapModel.FK_Image_UserVehicle">
+            <End Role="UserVehicle" EntitySet="UserVehicles" />
+            <End Role="VeImage" EntitySet="VeImages" />
+          </AssociationSet>
+          <EntitySet Name="ScheduledSwaps" EntityType="SwapModel.ScheduledSwap" />
+          <EntitySet Name="SwapRatings" EntityType="SwapModel.SwapRating" />
+          <AssociationSet Name="FK_SwapRating_ScheduledSwap" Association="SwapModel.FK_SwapRating_ScheduledSwap">
+            <End Role="ScheduledSwap" EntitySet="ScheduledSwaps" />
+            <End Role="SwapRating" EntitySet="SwapRatings" />
+          </AssociationSet>
+          <EntitySet Name="TheTroves" EntityType="SwapModel.TheTrove" />
+        </EntityContainer>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="PasswordFormat" Nullable="false" />
+          <Property Type="String" Name="PasswordSalt" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MobilePIN" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LoweredEmail" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PasswordQuestion" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PasswordAnswer" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsApproved" Nullable="false" />
+          <Property Type="Boolean" Name="IsLockedOut" Nullable="false" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="LastLoginDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="LastPasswordChangedDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="LastLockoutDate" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="FailedPasswordAttemptCount" Nullable="false" />
+          <Property Type="DateTime" Name="FailedPasswordAttemptWindowStart" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="FailedPasswordAnswerAttemptCount" Nullable="false" />
+          <Property Type="DateTime" Name="FailedPasswordAnswerAttemptWindowStart" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="aspnet_Users" Relationship="SwapModel.FK__aspnet_Me__UserI__22AA2996" FromRole="aspnet_Membership" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LoweredUserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MobileAlias" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsAnonymous" Nullable="false" />
+          <Property Type="DateTime" Name="LastActivityDate" Nullable="false" Precision="3" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="SwapModel.FK__aspnet_Me__UserI__22AA2996" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
+        </EntityType>
+        <Association Name="FK__aspnet_Me__UserI__22AA2996">
+          <End Type="SwapModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="SwapModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ProfileProperty">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phone" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="State" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="Zip" />
+          <NavigationProperty Name="UserVehicles" Relationship="SwapModel.FK_UserVehicle_ProfileProperty" FromRole="ProfileProperty" ToRole="UserVehicle" />
+          <Property Type="Byte" Name="ValueCategory" />
+          <Property Type="String" Name="SelfImgUrl" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserVehicle">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="VehicleMake" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="VehicleModel" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="VehicleYear" Nullable="false" />
+          <Property Type="String" Name="VehicleType" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="VehicleDescription" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="VehicleMiles" Nullable="false" />
+          <Property Type="Decimal" Name="VehicleValue" Precision="19" Scale="4" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <NavigationProperty Name="ProfileProperty" Relationship="SwapModel.FK_UserVehicle_ProfileProperty" FromRole="UserVehicle" ToRole="ProfileProperty" />
+          <Property Type="Byte" Name="ValueCategory" />
+          <NavigationProperty Name="VeImages" Relationship="SwapModel.FK_Image_UserVehicle" FromRole="UserVehicle" ToRole="VeImage" />
+        </EntityType>
+        <Association Name="FK_UserVehicle_ProfileProperty">
+          <End Type="SwapModel.ProfileProperty" Role="ProfileProperty" Multiplicity="1" />
+          <End Type="SwapModel.UserVehicle" Role="UserVehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileProperty">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserVehicle">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="UserFrom" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserTo" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="LastReceived" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="MsgEvent">
+          <Key>
+            <PropertyRef Name="UId" />
+          </Key>
+          <Property Type="Guid" Name="UId" Nullable="false" />
+          <Property Type="DateTime" Name="When" Nullable="false" Precision="3" />
+          <Property Type="String" Name="MsgType" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsRead" Nullable="false" />
+          <Property Type="String" Name="UserFrom" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserTo" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RecMessage" Relationship="SwapModel.FK_RecMessage_MsgEvent" FromRole="MsgEvent" ToRole="RecMessage" />
+          <NavigationProperty Name="SentMessage" Relationship="SwapModel.FK_SentMessage_MsgEvent" FromRole="MsgEvent" ToRole="SentMessage" />
+        </EntityType>
+        <EntityType Name="RecMessage">
+          <Key>
+            <PropertyRef Name="UId" />
+          </Key>
+          <Property Type="Guid" Name="UId" Nullable="false" />
+          <Property Type="String" Name="Message" Nullable="false" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsRead" Nullable="false" />
+          <Property Type="String" Name="Subject" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MsgEvent" Relationship="SwapModel.FK_RecMessage_MsgEvent" FromRole="RecMessage" ToRole="MsgEvent" />
+        </EntityType>
+        <EntityType Name="SentContact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="UserFrom" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserTo" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="LastSent" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="SentMessage">
+          <Key>
+            <PropertyRef Name="UId" />
+          </Key>
+          <Property Type="Guid" Name="UId" Nullable="false" />
+          <Property Type="String" Name="Message" Nullable="false" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsRead" Nullable="false" />
+          <Property Type="String" Name="Subject" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MsgEvent" Relationship="SwapModel.FK_SentMessage_MsgEvent" FromRole="SentMessage" ToRole="MsgEvent" />
+        </EntityType>
+        <Association Name="FK_RecMessage_MsgEvent">
+          <End Type="SwapModel.MsgEvent" Role="MsgEvent" Multiplicity="1" />
+          <End Type="SwapModel.RecMessage" Role="RecMessage" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="MsgEvent">
+              <PropertyRef Name="UId" />
+            </Principal>
+            <Dependent Role="RecMessage">
+              <PropertyRef Name="UId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SentMessage_MsgEvent">
+          <End Type="SwapModel.MsgEvent" Role="MsgEvent" Multiplicity="1" />
+          <End Type="SwapModel.SentMessage" Role="SentMessage" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="MsgEvent">
+              <PropertyRef Name="UId" />
+            </Principal>
+            <Dependent Role="SentMessage">
+              <PropertyRef Name="UId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="RequestEvent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="DateTime" Name="RequestDate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="RequestFrom" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RequestTo" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Accept" />
+          <Property Type="DateTime" Name="DateAccepted" Precision="3" />
+          <Property Type="Guid" Name="FromVeId" Nullable="false" />
+          <Property Type="Guid" Name="ToVeId" Nullable="false" />
+          <Property Type="DateTime" Name="DateFrom" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="DateTo" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="ValueCategory">
+          <Key>
+            <PropertyRef Name="Category" />
+            <PropertyRef Name="Range" />
+          </Key>
+          <Property Type="Byte" Name="Category" Nullable="false" />
+          <Property Type="String" Name="Range" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ZipDistance">
+          <Key>
+            <PropertyRef Name="ZipFrom" />
+            <PropertyRef Name="ZipTo" />
+          </Key>
+          <Property Type="Int32" Name="ZipFrom" Nullable="false" />
+          <Property Type="Int32" Name="ZipTo" Nullable="false" />
+          <Property Type="Decimal" Name="Distance" Precision="6" Scale="2" />
+        </EntityType>
+        <EntityType Name="VeImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="VehicleId" Nullable="false" />
+          <Property Type="String" Name="ImageUrl" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsMain" Nullable="false" />
+          <NavigationProperty Name="UserVehicle" Relationship="SwapModel.FK_Image_UserVehicle" FromRole="VeImage" ToRole="UserVehicle" />
+        </EntityType>
+        <Association Name="FK_Image_UserVehicle">
+          <End Type="SwapModel.UserVehicle" Role="UserVehicle" Multiplicity="1" />
+          <End Type="SwapModel.VeImage" Role="VeImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserVehicle">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VeImage">
+              <PropertyRef Name="VehicleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ScheduledSwap">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="UserMain" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserOther" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="VeMain" Nullable="false" />
+          <Property Type="Guid" Name="VeOther" Nullable="false" />
+          <Property Type="DateTime" Name="DateFrom" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="DateTo" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="3" />
+          <NavigationProperty Name="SwapRatings" Relationship="SwapModel.FK_SwapRating_ScheduledSwap" FromRole="ScheduledSwap" ToRole="SwapRating" />
+          <Property Type="Boolean" Name="MainRated" Nullable="false" />
+          <Property Type="Boolean" Name="OtherRated" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SwapRating">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="SwapId" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TradedWith" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Byte" Name="Rating" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="DateFrom" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="DateTo" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ScheduledSwap" Relationship="SwapModel.FK_SwapRating_ScheduledSwap" FromRole="SwapRating" ToRole="ScheduledSwap" />
+        </EntityType>
+        <Association Name="FK_SwapRating_ScheduledSwap">
+          <End Type="SwapModel.ScheduledSwap" Role="ScheduledSwap" Multiplicity="1" />
+          <End Type="SwapModel.SwapRating" Role="SwapRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScheduledSwap">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SwapRating">
+              <PropertyRef Name="SwapId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TheTrove">
+          <Key>
+            <PropertyRef Name="tStamp" />
+            <PropertyRef Name="ip" />
+          </Key>
+          <Property Name="tStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ip" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="msg" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SwapModelStoreContainer" CdmEntityContainer="SwapEntities">
+          <EntitySetMapping Name="aspnet_Membership">
+            <EntityTypeMapping TypeName="SwapModel.aspnet_Membership">
+              <MappingFragment StoreEntitySet="aspnet_Membership">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+                <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+                <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+                <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+                <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+                <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+                <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Users">
+            <EntityTypeMapping TypeName="SwapModel.aspnet_Users">
+              <MappingFragment StoreEntitySet="aspnet_Users">
+                <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+                <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+                <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+                <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfileProperties">
+            <EntityTypeMapping TypeName="SwapModel.ProfileProperty">
+              <MappingFragment StoreEntitySet="ProfileProperty">
+                <ScalarProperty Name="SelfImgUrl" ColumnName="SelfImgUrl" />
+                <ScalarProperty Name="ValueCategory" ColumnName="ValueCategory" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserVehicles">
+            <EntityTypeMapping TypeName="SwapModel.UserVehicle">
+              <MappingFragment StoreEntitySet="UserVehicle">
+                <ScalarProperty Name="ValueCategory" ColumnName="ValueCategory" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="VehicleValue" ColumnName="VehicleValue" />
+                <ScalarProperty Name="VehicleMiles" ColumnName="VehicleMiles" />
+                <ScalarProperty Name="VehicleDescription" ColumnName="VehicleDescription" />
+                <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+                <ScalarProperty Name="VehicleYear" ColumnName="VehicleYear" />
+                <ScalarProperty Name="VehicleModel" ColumnName="VehicleModel" />
+                <ScalarProperty Name="VehicleMake" ColumnName="VehicleMake" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="SwapModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="LastReceived" ColumnName="LastReceived" />
+                <ScalarProperty Name="UserTo" ColumnName="UserTo" />
+                <ScalarProperty Name="UserFrom" ColumnName="UserFrom" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MsgEvents">
+            <EntityTypeMapping TypeName="SwapModel.MsgEvent">
+              <MappingFragment StoreEntitySet="MsgEvent">
+                <ScalarProperty Name="UserTo" ColumnName="UserTo" />
+                <ScalarProperty Name="UserFrom" ColumnName="UserFrom" />
+                <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+                <ScalarProperty Name="MsgType" ColumnName="MsgType" />
+                <ScalarProperty Name="When" ColumnName="When" />
+                <ScalarProperty Name="UId" ColumnName="UId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecMessages">
+            <EntityTypeMapping TypeName="SwapModel.RecMessage">
+              <MappingFragment StoreEntitySet="RecMessage">
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="UId" ColumnName="UId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SentContacts">
+            <EntityTypeMapping TypeName="SwapModel.SentContact">
+              <MappingFragment StoreEntitySet="SentContact">
+                <ScalarProperty Name="LastSent" ColumnName="LastSent" />
+                <ScalarProperty Name="UserTo" ColumnName="UserTo" />
+                <ScalarProperty Name="UserFrom" ColumnName="UserFrom" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SentMessages">
+            <EntityTypeMapping TypeName="SwapModel.SentMessage">
+              <MappingFragment StoreEntitySet="SentMessage">
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="UId" ColumnName="UId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RequestEvents">
+            <EntityTypeMapping TypeName="SwapModel.RequestEvent">
+              <MappingFragment StoreEntitySet="RequestEvent">
+                <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+                <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+                <ScalarProperty Name="ToVeId" ColumnName="ToVeId" />
+                <ScalarProperty Name="FromVeId" ColumnName="FromVeId" />
+                <ScalarProperty Name="DateAccepted" ColumnName="DateAccepted" />
+                <ScalarProperty Name="Accept" ColumnName="Accept" />
+                <ScalarProperty Name="RequestTo" ColumnName="RequestTo" />
+                <ScalarProperty Name="RequestFrom" ColumnName="RequestFrom" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ValueCategories">
+            <EntityTypeMapping TypeName="SwapModel.ValueCategory">
+              <MappingFragment StoreEntitySet="ValueCategory">
+                <ScalarProperty Name="Range" ColumnName="Range" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZipDistances">
+            <EntityTypeMapping TypeName="SwapModel.ZipDistance">
+              <MappingFragment StoreEntitySet="ZipDistance">
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="ZipTo" ColumnName="ZipTo" />
+                <ScalarProperty Name="ZipFrom" ColumnName="ZipFrom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VeImages">
+            <EntityTypeMapping TypeName="SwapModel.VeImage">
+              <MappingFragment StoreEntitySet="VeImage">
+                <ScalarProperty Name="IsMain" ColumnName="IsMain" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScheduledSwaps">
+            <EntityTypeMapping TypeName="SwapModel.ScheduledSwap">
+              <MappingFragment StoreEntitySet="ScheduledSwap">
+                <ScalarProperty Name="OtherRated" ColumnName="OtherRated" />
+                <ScalarProperty Name="MainRated" ColumnName="MainRated" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+                <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+                <ScalarProperty Name="VeOther" ColumnName="VeOther" />
+                <ScalarProperty Name="VeMain" ColumnName="VeMain" />
+                <ScalarProperty Name="UserOther" ColumnName="UserOther" />
+                <ScalarProperty Name="UserMain" ColumnName="UserMain" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SwapRatings">
+            <EntityTypeMapping TypeName="SwapModel.SwapRating">
+              <MappingFragment StoreEntitySet="SwapRating">
+                <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+                <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="TradedWith" ColumnName="TradedWith" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="SwapId" ColumnName="SwapId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TheTroves">
+            <EntityTypeMapping TypeName="SwapModel.TheTrove">
+              <MappingFragment StoreEntitySet="TheTrove">
+                <ScalarProperty Name="msg" ColumnName="msg" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="tStamp" ColumnName="tStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="SwapModel">
+        <EntityTypeShape EntityType="SwapModel.aspnet_Membership" Width="1.5" PointX="0.5" PointY="3.75" Height="5.2494108072916656" />
+        <EntityTypeShape EntityType="SwapModel.aspnet_Users" Width="1.5" PointX="2.625" PointY="4.25" Height="2.2496956380208317" />
+        <AssociationConnector Association="SwapModel.FK__aspnet_Me__UserI__22AA2996" >
+          <ConnectorPoint PointX="2.625" PointY="5.5285953776041659" />
+          <ConnectorPoint PointX="2" PointY="5.5285953776041659" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SwapModel.ProfileProperty" Width="1.5" PointX="0.5" PointY="0.5" Height="2.9417936197916665" />
+        <EntityTypeShape EntityType="SwapModel.UserVehicle" Width="1.5" PointX="2.25" PointY="0.5" Height="3.326396484375" />
+        <AssociationConnector Association="SwapModel.FK_UserVehicle_ProfileProperty" >
+          <ConnectorPoint PointX="2" PointY="1.9708968098958333" />
+          <ConnectorPoint PointX="2.25" PointY="1.9708968098958333" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SwapModel.Contact" Width="1.5" PointX="5.875" PointY="0.5" Height="1.5923063151041665" />
+        <EntityTypeShape EntityType="SwapModel.MsgEvent" Width="1.5" PointX="4.5" PointY="6.375" Height="2.5571907552083326" />
+        <EntityTypeShape EntityType="SwapModel.RecMessage" Width="1.5" PointX="6.5" PointY="5.625" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="SwapModel.SentContact" Width="1.5" PointX="7.875" PointY="0.5" Height="1.5923063151041674" />
+        <EntityTypeShape EntityType="SwapModel.SentMessage" Width="1.5" PointX="6.5" PointY="7.875" Height="1.9802864583333317" />
+        <AssociationConnector Association="SwapModel.FK_RecMessage_MsgEvent" >
+          <ConnectorPoint PointX="6" PointY="6.9901432291666667" />
+          <ConnectorPoint PointX="6.5" PointY="6.9901432291666667" />
+        </AssociationConnector>
+        <AssociationConnector Association="SwapModel.FK_SentMessage_MsgEvent" >
+          <ConnectorPoint PointX="6" PointY="8.4035953776041659" />
+          <ConnectorPoint PointX="6.5" PointY="8.4035953776041659" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SwapModel.RequestEvent" Width="1.5" PointX="8" PointY="3.375" Height="2.5783902994791656" />
+        <EntityTypeShape EntityType="SwapModel.ValueCategory" Width="1.5" PointX="2.5" PointY="8.625" Height="1.4033821614583335" />
+        <EntityTypeShape EntityType="SwapModel.ZipDistance" Width="1.5" PointX="2.5" PointY="6.875" Height="1.4279589843750031" />
+        <EntityTypeShape EntityType="SwapModel.VeImage" Width="1.5" PointX="4.125" PointY="0.5" Height="1.7566536458333388" />
+        <AssociationConnector Association="SwapModel.FK_Image_UserVehicle" >
+          <ConnectorPoint PointX="3.75" PointY="1.4901432291666668" />
+          <ConnectorPoint PointX="4.125" PointY="1.4901432291666668" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SwapModel.ScheduledSwap" Width="1.5" PointX="4.375" PointY="2.75" Height="3.1340950520833317" />
+        <EntityTypeShape EntityType="SwapModel.SwapRating" Width="1.5" PointX="6.25" PointY="2.375" Height="2.9417936197916656" />
+        <AssociationConnector Association="SwapModel.FK_SwapRating_ScheduledSwap" >
+          <ConnectorPoint PointX="5.875" PointY="4.0333968098958337" />
+          <ConnectorPoint PointX="6.25" PointY="4.0333968098958337" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SwapModel.TheTrove" Width="1.5" PointX="8.25" PointY="6.875" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
