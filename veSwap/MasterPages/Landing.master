@@ -1,0 +1,100 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Landing.master.cs" Inherits="MasterPages_Landing" %>
+<%@ Register src="../Controls/SMediaPanel.ascx" tagname="SMediaPanel" tagprefix="uc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
+
+<head id="Head1" runat="server">
+<link rel="icon" type="image/png" href="../app_themes/SwapUserX/Images/LinkImg.png" />
+<title>Trade vehicles today!</title>
+	<script type="text/javascript" src="../Scripts/jquery-1.11.3.min.js"></script>
+    <meta name="description" content="Trade vehicles with someone for the weekend! Or another
+    convenient time that fits your needs. Our exclusive car club is free of charge, sign up now!" />
+
+    <asp:ContentPlaceHolder ID="cpHead" runat="server" />
+</head>
+<body>
+<form id="MasterForm" runat="server">
+<uc1:SMediaPanel ID="SMediaPanel1" runat="server" />
+
+<asp:ScriptManager ID="ScriptManager1" runat="server" />
+
+<div class="truheadflex">
+<div class="logo">
+<a href="http://swap">
+    <span class="e">ve</span><span class="m">Swap</span>
+</a>
+</div>
+<div class="togglecontainer">
+    <label for="drop" class="toggle">
+        Menu <asp:Image AlternateText="Menu button image." ImageUrl="~/App_Themes/SwapUserX/Images/MobileMenu-Icon.png" ID="MobileMenuImg" ClientIDMode="Static" runat="server" />
+     </label>
+</div>
+<div class="mobilenav">
+    <input type="checkbox" id="drop" />
+    <dl class="mobilenavlist">
+        <dt><asp:HyperLink NavigateUrl="~/MyProfile/MyProfile.aspx" ID="HyperLink10" runat="server">About veSwap</asp:HyperLink></dt>
+        <dt><asp:HyperLink NavigateUrl="~/MyProfile/MyProfile.aspx" ID="HyperLink11" runat="server">How it Works</asp:HyperLink></dt>
+    </dl>
+</div>
+<div id="SloganContainer" class="slogancontain">
+    <span class="slogan">
+        <span id="Span1">
+            Become a member of our exclusive club.
+        </span>
+        <span id="Span2">
+            Swap rides at your own convenience.
+        </span>
+        <span id="Span3">
+            Let every day be a new ride!
+        </span>
+    </span>
+</div>
+<div class="rightmargin">
+</div>
+</div>
+
+<div id="PageWrapper" class="flexbody">
+    <div id="Header" class="bodyheader">
+            <asp:ContentPlaceHolder ID="cpBodyHead" runat="server">
+            </asp:ContentPlaceHolder>
+    </div>
+    
+    <div id="MidContainer" class="flexmidlanding">
+		    <asp:ContentPlaceHolder ID="cpMainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <a href="javascript:void(0);" style="display: none;" id="scrolltop" class="scrolltop">
+                <asp:Image ImageUrl="~/App_Themes/SwapUserX/Images/ScrollTop.png" ID="ScrollTopImg" ClientIDMode="Static" runat="server" />
+            </a>
+            <script src="../Scripts/ScrollTop.js" type="text/javascript"></script>
+    </div>
+    <div id="Footer">
+        <p>
+            &nbsp;&nbsp;<asp:HyperLink NavigateUrl="~/Resources/TermsOfUse.aspx" ID="HyperLink1" runat="server">Terms of Use</asp:HyperLink>&nbsp;&nbsp; | 
+            &nbsp;&nbsp;<asp:HyperLink NavigateUrl="~/Resources/ContactUs.aspx" ID="HyperLink2" runat="server">Contact Us</asp:HyperLink>&nbsp;&nbsp; |
+            &nbsp;&nbsp;<asp:HyperLink NavigateUrl="~/Resources/Help.aspx" ID="HyperLink3" runat="server">Help</asp:HyperLink>
+        </p>
+        <p>&#169 <asp:Label ID="YearLabel" runat="server" Text="" /> Copyright All Rights Reserved (Triple-Jay Enterprises LLC)</p>
+        <asp:ContentPlaceHolder ID="cpFooter" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+</div>   
+<script type="text/javascript">
+    
+        $('#Span1').hide();
+        $('#Span2').hide();
+        $('#Span3').hide();
+        $('#Span1').fadeIn(1000);
+        $('#Span1').delay(5000);
+        $('#Span1').fadeOut(1000);
+        $('#Span2').delay(7500);
+        $('#Span2').fadeIn(2500);
+        $('#Span2').delay(6500);
+        $('#Span2').fadeOut(1000);
+        $('#Span3').delay(18000);
+        $('#Span3').fadeIn(2500);
+    
+</script>
+</form>
+</body>
+</html>
+
