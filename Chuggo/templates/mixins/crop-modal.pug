@@ -1,0 +1,21 @@
+mixin crop-profileimg-lg()
+    .crop-container(id='crop-container-lg')
+            .btn-group.btns-croppie
+                    button.btn.btn-primary.btn-crop-lg Crop and Save
+                    button.btn.btn-danger.btn-crop-cancel(id='btn-croplg-cancel') Cancel
+            .croppie-lgprofile(id='croppie-lg')
+                img(id='cropped-lgimg' src='')
+    form(id='uploadLg' method='post' action='/home/lgimg' enctype='multipart/form-data')
+        input(type='file' id='update-lg-file' class='hide')
+        input(type='hidden' id='base64lg' name='base64lg')
+
+mixin crop-profileimg-sm()
+    .crop-container(id='crop-container-sm')
+        .btn-group.btns-croppie
+                button.btn.btn-primary.btn-crop-sm Crop and Save
+                button.btn.btn-danger.btn-crop-cancel(id='btn-cropsm-cancel') Cancel
+        .croppie-smprofile(id='croppie-sm')
+            img(id='cropped-smimg' src='')
+    form(id='uploadSm' method='post' action='/home/smimg' enctype='multipart/form-data')
+        input(type='file' id='update-sm-file' class='hide')
+        input(type='hidden' id='base64sm' name='base64sm')

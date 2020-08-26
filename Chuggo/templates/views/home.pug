@@ -1,0 +1,38 @@
+extends ../layouts/default
+include ../mixins/crop-modal
+
+block head
+    link(href="/styles/croppie.css", rel="stylesheet")
+
+block content
+    +crop-profileimg-lg()
+    +crop-profileimg-sm()
+    .container
+        .user-home-left-col.col-lg-4.container-correct
+            .row
+                .lg-prof-img
+                    a(id='updateLgImg' class='btn btn-primary btn-update-lg-img')
+                        i.fas.fa-camera
+                    img(src=profileInfo.lgImg)
+            .row
+                .user-profile-meta-row
+                    .sm-prof-img
+                        a(id='updateSmImg' class='btn btn-primary btn-update-sm-img')
+                            i.fas.fa-camera
+                        img(src=profileInfo.smImg)
+                    .user-profile-meta-left
+                        span.glyphicon.glyphicon-grain
+                            | Followers: 1,521
+                    .user-profile-meta-right
+                        span.glyphicon.glyphicon-grain
+                            | Following: 34 
+            .row.mt-8.tabset(id='tabs-parent')
+        .col-lg-5.mt-4
+            div(id='following-parent')
+        .col-lg-3.mt-4
+            div(id='recommended-parent')
+
+block js
+    script(src='/js/croppie.js')
+    script(src='/js/profile-img-upload.js')
+    script(src='/js/jquery/inViewPort.js')

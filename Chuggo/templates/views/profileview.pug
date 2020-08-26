@@ -1,0 +1,31 @@
+extends ../layouts/default
+
+block content
+    .container
+        .user-home-left-col.col-lg-7.mt-4
+            .row
+                .lg-prof-img
+                    img(src=profileInfo.lgImg)
+            .row
+                .user-profile-meta-row
+                    .sm-prof-img
+                        img(src=profileInfo.smImg)
+                    .user-profile-meta-left
+                        span.glyphicon.glyphicon-grain
+                            | Followers: 1,521
+                    .user-profile-meta-right
+                        span.glyphicon.glyphicon-grain
+                            | Following: 34
+            .row.mt-8.tabset(id='tabs-parent')
+            .row.mt-5
+                form(id='upload' class='mt-4' method='post' action='/home' enctype='multipart/form-data')
+                    .div(id='drop')
+                        | drop here
+                        a Browse
+                        input(type='file' class='knob' name='image' multiple)
+                    ul
+        .col-lg-5.mt-4
+            div(id='following-parent')
+
+block js
+    script(src='/js/jquery/inViewPort.js')

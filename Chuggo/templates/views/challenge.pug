@@ -1,0 +1,16 @@
+extends ../layouts/default
+include ../mixins/crop-modal
+
+block head
+
+block content
+    div(id='testbed').mt-7
+        div(id='new-blurt-container')
+            div(contenteditable id='editme')
+            div(id='output')
+    div(id='dc')
+     | good deal foobar
+    div(id='testbox')
+
+block js
+    script(src='/js/brainfoo.js')

@@ -1,0 +1,22 @@
+extends ../layouts/default
+
+mixin leftCommentaryPanel()
+	.container
+		.box
+			| So what
+	
+mixin rightCommentaryPanel()
+	.container
+		.box
+			| So what
+				
+block content
+	.container.mt-4
+		.col-lg-6
+			.row
+				+leftCommentaryPanel()
+		.col-lg-6.landing-col-border-left
+			.row
+				+rightCommentaryPanel()
+block js
+	

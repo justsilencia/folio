@@ -1,0 +1,91 @@
+extends ../layouts/default
+
+mixin landingCarousel(posts)
+	#newsCarousel.carousel.slide(data-ride='carousel')
+		ol.carousel-indicators
+			li.active(data-target='#newsCarousel' data-slide-to='0')
+			li(data-target='#newsCarousel' data-slide-to='1')
+			li(data-target='#newsCarousel' data-slide-to='2')
+		.carousel-inner
+			.item.active
+				.carousel-card
+					h3 Intellectual White Advocates
+					img(src="/images/Landing.jpg", alt="UVIWA").img-responsive
+			each post in data.posts
+				.item
+					.carousel-card
+						a(href='/blog/post/' + post.slug)
+							h3= post.title
+							if post.image
+								img(src='/images/blog/' + post.image.filename).img-responsive
+		a.left.carousel-control(href='#newsCarousel' data-slide="prev")
+			span.glyphicon.glyphicon-chevron-left
+			span.sr-only
+		a.right.carousel-control(href='#newsCarousel' data-slide="next")
+			span.glyphicon.glyphicon-chevron-right
+			span.sr-only
+
+mixin blogPanel()
+	.blog-panel-container
+		each blog in data.blogs
+			if blog.state == 'published'
+				.col-lg-6
+					.panel.panel-default
+						div(class='panel-body blog-panel ' + blog.css)
+							img(src='/images/blog/' + blog.image.filename).img-responsive
+						.panel-footer
+							h3= blog.title
+							.blog-meta
+								| #{blog._.publishedDate.format('MMMM Do, YYYY')} 
+								if blog.author
+									| by #{blog.author.name.full}
+
+mixin blurtPanel(blurts)
+	.blurt-container-landing
+		h2 Popular Discourse
+		each blurt in blurts
+			.row
+				.panel.blurt-panel-landing
+					.blurt-panel-body
+						table.blurt-panel-table: tr
+							td.imgcell
+								.blurt-img-shell
+									img(src='/images/profiles/' + blurt.img)
+							td.titlecell
+								.blurt-content-box
+									.blurt-content-title
+									| #{blurt.title}
+							td.votecell
+								h3 #{blurt.votecount}
+					.blurt-panel-footer
+						.blurt-meta
+							| Posted on #{blurt.date} by 
+							strong #{blurt.user} 
+							|| #{blurt.comments} Comments
+				
+block content
+	.container.mt-4
+		.col-lg-6.mr-1
+			.row
+				+landingCarousel()
+			.row
+				div.marquee.mt-1
+					ul
+						each quote in data.quotes
+							li
+								span &nbsp; #{quote.quote}&nbsp;
+									em: b (#{quote.author}). 
+			.row
+				+blogPanel()
+		.col-lg-5.landing-col-border-left
+			+blurtPanel(data.discourse)
+
+block js
+	script.
+		$(document).ready(function() {
+			$('.marquee').jConveyorTicker({
+				anim_duration: 300,
+				force_loop: true
+			});
+		});
+	

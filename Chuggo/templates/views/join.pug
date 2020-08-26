@@ -1,0 +1,54 @@
+extends ../layouts/default
+
+block content
+    .container
+        .row
+            .col-lg-6.center-col.mt-5
+                div(id='avowed-selection' class='avowed-container')
+                div
+                    form(method='post' id='joinform' action='/join')
+                        input(type='hidden' name='avowed' id='avowed-final')
+                        .form-group()
+                            label Email
+                            input(type='email', id='email', name='email', required, value=formData.email, maxlength='35').form-control
+                        .form-group
+                            label Display Name
+                            input(type='text', name='displayName', required, value=formData.displayName, maxlength='16').form-control
+                        .form-group
+                            label First Name
+                            input(type='text', name='firstname', value=formData['name.first'], maxlength='40').form-control
+                        .form-group
+                            label Last Name
+                            input(type='text', name='lastname', value=formData['name.last'], maxlength='40').form-control
+                        .form-group
+                            label DOB
+                            input(type='date', name='dob', value=formData['dob'], maxlength='10').form-control
+                        .form-group
+                            label Profession
+                            input(type='text', name='profession', value=formData.profession, maxlength='40').form-control
+                        .form-group
+                            label Zip Code
+                            input(type='text', name='zip', value=formData.zip, maxlength='5').form-control
+                        .form-group
+                            label Short Bio
+                            textarea(name='bio', id='bio', maxlength='5000', rows=4).form-control= formData.message
+                                | #{formData.bio}
+                        .form-group
+                            label Password
+                            input(type='password', id='pw', name='password', maxlength='25', required, placeholder='Min 6 characters').form-control
+                        .form-group
+                            label Confirm Password
+                            input(type='password', id='vpw', required, name='vpassword', maxlength='25').form-control
+                        .form-actions
+                            button(type='submit').btn.btn-primary Create User
+
+block js
+    script(src='/js/modal-window.js')
+    script(src='/js/join-initial.js')
+    script(src='/js/valiform.js')
+    script(src='/js/joinform.js')
+    script(src='/js/tinymce.min.js')
+    script.
+        tinymce.init({
+            selector: 'textarea'
+        });
