@@ -1,3 +1,0 @@
-"SELECT DISTINCT m.dc_number, Last_Name, first_name, subject  FROM Master_Roster m INNER JOIN attend_am_compass a ON a.dc_number = m.dc_number WHERE class_date_am >= '"&Session("Month3")&"/1/"&Session("Year")&"'" & _
-		    "AND class_date_am <= '"&Session("Month3")&"/"&Session("Days3")&"/"&Session("Year")&"'" & _
-		    "AND Subject = '" & Session("Class") & "' ORDER BY Last_Name"
