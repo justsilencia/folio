@@ -1,0 +1,120 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="UserX.master.cs" Inherits="MasterPages_UserX" %>
+<%@ Register src="../Controls/SMediaPanel.ascx" tagname="SMediaPanel" tagprefix="uc1" %>
+
+
+<!doctype html>
+<html lang="en">
+<head id="Head1" runat="server">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128380652-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128380652-1');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow"/>
+<link rel="icon" href="../App_Themes/CSMUserX/Images/favicon.ico" type="image/x-icon" />
+<title>Succeed by Earning Great Credit | Credit Score Maestro</title>
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</head>
+<body class="bg-body">
+<form id="MasterForm" runat="server">
+<uc1:SMediaPanel ID="SMediaPanel1" runat="server" />
+<!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
+      <div class="container">
+        <asp:HyperLink CssClass="navbar-brand homelink" NavigateUrl="https://creditscoremaestro.com" ID="HyperLink7" runat="server">
+            <asp:Image Width="25" AlternateText="Credit score maestro logo." ID="BookImg" ClientIDMode="Static" ImageUrl="~/App_Themes/CSMUserX/Images/Logo-Trans.png" runat="server" />
+            <h1>Credit Score Maestro</h1>
+        </asp:HyperLink>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-4">
+            <li class="nav-item mr-4">
+                <asp:HyperLink CssClass="nav-link bg-info"  NavigateUrl="~/Default.aspx" ID="MenuLinkHome" runat="server">
+                    Sign Up
+                </asp:HyperLink>
+            </li>
+            <li class="nav-item mr-4">
+                <asp:HyperLink CssClass="nav-link bg-info" NavigateUrl="~/Resources/PDF-Library.aspx" ID="HyperLink13" runat="server">
+                    Credit Library
+                </asp:HyperLink>
+            </li>
+            <li class="nav-item mr-4">
+                <asp:HyperLink CssClass="nav-link bg-info" NavigateUrl="~/Resources/Form-Library.aspx" ID="HyperLink14" runat="server">
+                    Credit Forms
+                </asp:HyperLink>
+            </li>
+            <li class="nav-item mr-4">
+                <asp:HyperLink CssClass="nav-link bg-info" NavigateUrl="~/Blog/Blog-Home.aspx" ID="HyperLink5" runat="server">
+                    Maestro's Blog
+                </asp:HyperLink>
+            </li>
+            <li class="nav-item mr-4">
+                <asp:HyperLink CssClass="nav-link bg-info" NavigateUrl="~/Misc/QA.aspx" ID="HyperLink12" runat="server">
+                    Credit Q & A
+                </asp:HyperLink>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link bg-info dropdown-toggle" data-toggle="dropdown" href="#">
+                    About Us
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item">
+                        <asp:HyperLink CssClass="nav-link" NavigateUrl="~/Misc/AboutUs.aspx" ID="HyperLink4" runat="server">
+                            Mission
+                        </asp:HyperLink>
+                    </li>
+                    <li class="dropdown-item">
+                        <asp:HyperLink CssClass="nav-link"  NavigateUrl="~/Resources/ContactUs.aspx" ID="HyperLink3" runat="server">
+                            Contact
+                        </asp:HyperLink>
+                    </li>
+                </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+    <asp:ContentPlaceHolder ID="ColumnTwoRowOne" runat="server">
+        </asp:ContentPlaceHolder>
+
+		<asp:ContentPlaceHolder ID="cpMainContent" runat="server">
+        </asp:ContentPlaceHolder>
+
+
+
+    <a href="#" style="display: none;" id="myscrolltop" class="myscrolltop">
+        <asp:Image AlternateText="Scroll to top." ImageUrl="~/App_Themes/CSMUserX/Images/ScrollTop.png" ID="ScrollTopImg" ClientIDMode="Static" runat="server" />
+    </a>
+    
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">
+          &nbsp;&nbsp;<asp:HyperLink NavigateUrl="~/Resources/TermsOfUse.aspx" ID="HyperLink1" runat="server">Terms of Use</asp:HyperLink>&nbsp;&nbsp; | 
+          &nbsp;&nbsp;<asp:HyperLink NavigateUrl="~/Resources/ContactUs.aspx" ID="HyperLink2" runat="server">Contact Us</asp:HyperLink>&nbsp;&nbsp; | 
+          &nbsp;&nbsp;<asp:HyperLink NavigateUrl="~/Misc/AboutUs.aspx" ID="HyperLink17" runat="server">About Us</asp:HyperLink>
+          &#169 <asp:Label ID="YearLabel" runat="server" Text="" /> Copyright All Rights Reserved (Credit Score Maestro LLC)
+        </p>
+          <asp:ContentPlaceHolder ID="cpFooter" runat="server">
+        </asp:ContentPlaceHolder>
+      </div>
+      <!-- /.container -->
+    </footer>
+</form>
+<script type="text/javascript" src="../Scripts/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../Scripts/popper.min.js"></script>
+<script type="text/javascript" src="../Scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="../Scripts/Page.min.js"></script>
+</body>
+</html>
